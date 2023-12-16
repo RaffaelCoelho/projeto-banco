@@ -1,0 +1,84 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <string.h>
+
+int main()
+{
+
+    char nome;
+    float saldo;
+    int codigo[10];
+    int i;
+    float valor_deposito[10];
+    float valor_saque[10];
+
+    printf("Digite seu nome:");
+    scanf("%s" , &nome);
+
+    fflush(stdin);
+
+    printf("Digite seu saldo:");
+    scanf("%f", &saldo);
+
+    printf("----------MENU----------");
+    printf("\n\nQual funçao deseja realizar?");
+
+    for (i = 0; i < 10; i++)
+    {
+
+        printf("\n1 - Depositar");
+        printf("\n2 - Sacar");
+        printf("\n3 - Ver o saldo atual");
+        printf("\n4 - Sair do programa");
+
+        fflush(stdin);
+
+        printf("\n\nDigite seu codigo:");
+        scanf("%d", &codigo[i]);
+
+        switch (codigo)
+        {
+        case 1:
+
+            fflush(stdin);
+
+            printf("Digite o valor que deseja depositar:");
+            scanf("%f", &valor_deposito[i]);
+
+            saldo = saldo + valor_deposito[i];
+
+            break;
+
+        case 2:
+
+            fflush(stdin);
+
+            printf("Digite o valor que deseja sacar:");
+            scanf("%f", &valor_saque[i]);
+
+            saldo = saldo - valor_saque[i];
+
+            break;
+
+        case 3:
+
+            printf("Saldo atual: %f", saldo);
+
+            break;
+
+        case 4:
+
+            abort();
+
+            break;
+
+        default:
+
+            printf("\nCodigo invalido....\nTente novamente");
+
+            break;
+        }
+    }
+    return 0;
+}
